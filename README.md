@@ -293,3 +293,12 @@ definition of an anomaly threshold,
 detection of stable deviation across three consecutive periods.
 
 This prototype illustrates the conceptual logic behind EUNOIA’s trend engine in a minimal and transparent form.
+## Visual Identity – Color Concept
+
+<img src="eunoia.jpg.png" width="500">
+
+<em>
+EUNOIA visual identity: white base as perceptual clarity and neutrality,  
+cobalt pigment as emotional amplitude and cognitive precision.  
+The brush-like texture represents regulation as a process — fluid, non-linear and adaptive.
+</em>
