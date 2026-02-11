@@ -279,3 +279,17 @@ on-device processing architectures,
 contemporary discussions on ethical AI design,
 
 an original visual concept grounded in individual perceptual experience.
+
+Prototype Demonstration (Python)
+
+A simplified prototype of the trend detection mechanism is available in the file trend_engine_demo.py.
+
+The script demonstrates:
+
+calculation of a personal physiological baseline,
+
+definition of an anomaly threshold,
+
+detection of stable deviation across three consecutive periods.
+
+This prototype illustrates the conceptual logic behind EUNOIA’s trend engine in a minimal and transparent form.
