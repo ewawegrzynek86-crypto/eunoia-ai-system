@@ -1,304 +1,152 @@
 EUNOIA – A System Supporting Cognitive Autonomy and Stress Regulation
-
 Final project for the Building AI course
-
 Summary
-
-EUNOIA is a personal artificial intelligence system designed to work alongside a wearable device in order to support cognitive autonomy through the analysis of individual physiological patterns and, optionally, linguistic patterns. The system operates locally, under full user control, and reports only correlations and trends—never causes, diagnoses, or judgments.
-
+EUNOIA is a personalized AI system designed to operate alongside a wearable device in order to support cognitive autonomy through the analysis of individual physiological patterns and—optionally—linguistic patterns.
+The system functions fully locally, under complete user control, and reports only correlations and trends — never causes, diagnoses, or behavioral judgments.
 Background
-
-Contemporary digital and professional environments are characterized by constant stimulation, rapid information exchange, and sustained cognitive pressure. Chronic stress and gradual overload are among the most common factors negatively affecting psychological well-being in industrialized societies.
-
-Many individuals:
-
-fail to recognize early signs of overload,
-
-experience manipulative communication patterns (such as subtle invalidation of perception),
-
+Modern environments are saturated with constant stimulation, rapid communication, and sustained cognitive pressure. Many individuals:
+fail to recognize early physiological signs of overload,
+struggle to detect manipulative communication patterns (e.g., subtle invalidation),
 operate under gradually increasing chronic tension,
-
-struggle with emotional regulation, particularly in the case of neurodivergent individuals.
-
-Existing technological solutions primarily focus on generalized relaxation exercises or static self-help programs. There is a lack of systems capable of learning the unique regulatory patterns of a specific individual rather than comparing them to population-level averages.
-
-The idea was motivated by the observation that many individuals lack tools supporting reflective awareness without imposing interpretation or external judgment. EUNOIA aims to support autonomy rather than replace it.
-
+face difficulties with emotional regulation, especially neurodivergent individuals.
+Existing technological tools rely mainly on generic relaxation exercises or population-level models.
+There is a clear need for systems that adapt to the individual rather than requiring individuals to conform to generalized norms.
+EUNOIA is grounded in the idea that people benefit from tools which enhance reflective awareness — without interpreting, correcting, or judging their experience.
 How is it used?
-
-EUNOIA operates on two functional layers:
-
+EUNOIA consists of two independent functional layers:
 1. Continuous Physiological Calibration (Local)
-
 The system analyzes:
-
 heart rate (HR),
-
 heart rate variability (HRV),
-
 breathing rhythm (if available),
-
-activity levels,
-
+activity level,
 recovery time to baseline.
-
-Based on these signals, EUNOIA builds an individual regulatory baseline specific to the user. Physiological signals are treated strictly as measurable biological data and are not directly interpreted as emotional states.
-
+From these signals, it constructs a personal regulatory baseline unique to the user.
+Physiological signals are treated strictly as biological measurements — not as emotional labels.
 2. On-Demand Linguistic Analysis
-
-The user may voluntarily submit a short text or fragment of a conversation. The system:
-
-generates a semantic vector representation of the text,
-
-compares linguistic patterns with locally stored representations (if enabled),
-
-correlates linguistic patterns with physiological data from the same time frame,
-
-returns a neutral correlation-based report.
-
-EUNOIA does not determine causes, evaluate individuals, or assess relationships.
-
-A soft alert may be generated only when a stable and sustained deviation from the user’s baseline is detected.
-
+The user may voluntarily submit text (typed or obtained via speech-to-text).
+EUNOIA then:
+generates a semantic vector representation (embedding),
+compares it only to the user’s previous embeddings (if enabled),
+correlates linguistic features with physiological data from the corresponding timeframe,
+returns a neutral, correlation-based report.
+Nothing is interpreted as intent, diagnosis, personality, or interpersonal meaning.
+Alerts appear only when stable deviations from the personal baseline persist.
+Confidence levels describe signal stability — not interpretative certainty.
 Stakeholders and Context
-
-The primary stakeholders are end-users seeking improved self-awareness in high-stress environments. Secondary stakeholders include developers, data protection auditors, and researchers evaluating ethical AI deployment. The system is designed to operate in personal daily contexts without external data access or institutional oversight.
-
+Primary stakeholders
+Individuals seeking improved self-regulation and self-awareness, particularly in high-stress or high-stimulation environments.
+Secondary stakeholders
+developers,
+data protection auditors,
+researchers analyzing ethical AI architectures.
+EUNOIA is designed for everyday personal use, without institutional oversight.
 Data Sources and AI Methods
 Data Sources
-
 Physiological data:
-
-HR,
-
-HRV,
-
-breathing rhythm,
-
-activity levels,
-
-regulatory recovery time.
-
-Linguistic data (on-demand only):
-
-manually entered text,
-
-speech converted to text.
-
-The system’s effectiveness depends on the quality and consistency of physiological signals collected by consumer wearable devices. Variability in sensor accuracy may influence the reliability of trend detection.
-
+HR / HRV
+breathing rhythm
+activity
+recovery time
+Optional linguistic data:
+manually entered text
+speech-to-text input
+Variability in wearable sensors may affect signal accuracy and trend detection reliability.
 AI Methods
-
-unsupervised anomaly detection relative to an individual baseline,
-
-short-term and long-term trend modeling,
-
-semantic vector representations for linguistic analysis,
-
-threshold-based activation mechanisms,
-
-separation of global models and personal on-device models.
-
+unsupervised anomaly detection relative to individual baseline,
+short- and long-term trend modeling,
+semantic vector representations (embeddings),
+threshold-based alert mechanisms,
+architectural separation of global and personal on-device models.
 EUNOIA – Data Flow
-
 Step 1: Physiological Data Collection
-
-Wearable device →
-• HR
-• HRV
-• activity
-• (optional) breathing
-
-Data is transferred locally to the application.
-
-↓
-
+Wearable device → HR / HRV / breathing / activity → local transfer.
 Step 2: Local Calibration Module
-
-New data is compared with the user’s personal baseline.
-The system maintains a model of what is regulatory “normal” for this individual.
-
-↓
-
+Incoming data is compared to the personal baseline; the model updates incrementally.
 Step 3: Deviation Detection
-
-An anomaly detection module evaluates whether changes are:
-
+Detector classifies deviations as:
 temporary,
-
-repetitive,
-
-part of an emerging trend.
-
-A deviation is marked as a trend only if it persists across at least three consecutive analytical periods.
-
-No interpretation of causes is performed.
-
-↓
-
+repeated,
+emerging trends (requiring ≥3 consecutive periods).
+No causal interpretation is performed.
 Step 4: Optional Linguistic Module
-
-The user voluntarily submits text.
-A semantic representation is generated and analyzed in correlation with concurrent physiological signals.
-
-↓
-
-Step 5: Data Fusion
-
-Biological and linguistic data are combined within a correlation framework.
-EUNOIA applies a causal barrier principle: the system reports correlations only, never causal explanations.
-
-↓
-
-Step 6: Reporting and Confidence Level
-
-The user receives:
-
-gentle alerts only for stable trends,
-
+User submits text → embedding generated → correlated with physiological timeline.
+Step 5: Fusion Layer
+Biological and linguistic data are integrated strictly within a correlation-only framework (causal barrier principle).
+Step 6: Reporting
+The system provides:
+gentle alerts for sustained trends,
 a visual map of changes,
-
-a confidence level (low / medium / high).
-
-↓
-
+confidence levels (low / medium / high).
+Confidence reflects the stability of data, not interpretative accuracy.
 Step 7: Local Storage
-
-Data remains stored locally and encrypted using a user-controlled key.
-
-↓
-
-Step 8: Optional Encrypted Backup
-
-The user may enable encrypted backup secured with a recovery phrase.
-
+Encrypted, user-controlled, stored exclusively on device.
+Step 8: Optional Backup
+Encrypted backup secured with a user-controlled key.
+Global systems never receive personal data.
 Local System Architecture
-
-Wearable device → physiological data transfer.
-
-Biological calibration module → construction of personal baseline.
-
-Personal regulatory model → trained exclusively on-device.
-
-Optional linguistic module → activated only upon request.
-
-Fusion layer → correlation-based integration.
-
-Reporting layer → neutral presentation without evaluative language.
-
-Local storage + optional encrypted backup → user-controlled encryption.
-
-If a global model is used, it remains strictly separated from personal data.
-
-Color Design and Regulatory Interface Philosophy
-
-The visual layer of EUNOIA functions as part of regulatory design rather than branding.
-
-The color system is intentionally restrained:
-
-White represents cognitive neutrality and absence of imposed interpretation.
-
-Cobalt blue symbolizes precise and controlled system intervention.
-
-Subtle gradients reflect regulation as a process rather than a sudden corrective action.
-
-The interface avoids high-contrast stimulation and intrusive animation. Its purpose is perceptual stability and low sensory activation.
-
-The visual design mirrors the ethical architecture of the system: clarity, restraint, and non-intrusiveness.
-
+Wearable device
+→ physiological signal capture
+→ calibration module
+→ personal regulatory model (on-device)
+→ optional linguistic module
+→ fusion layer
+→ reporting layer
+→ encrypted storage
+→ optional encrypted backup
+If a global model exists, it never accesses personal data.
+Color Design and Interface Philosophy
+EUNOIA’s visual identity serves regulatory stability rather than branding.
+White → perceptual neutrality
+Cobalt blue → precise and controlled intervention
+Soft gradients → regulation as a continuous process
+The interface avoids overstimulation, prioritizing clarity and low sensory load.
 Ethical Principles
-
-1. Causal Barrier Principle
-The system reports correlations and trends only—never causes or diagnoses.
-
-2. Full User Control
-Linguistic analysis is strictly user-initiated. Backup is optional. Data can be deleted at any time.
-
-3. No Behavioral Steering
-EUNOIA does not issue commands, prescribe actions, or evaluate interpersonal dynamics.
-
-4. Model Separation
-Global models (if present) are separated from personal on-device models.
-
-5. Privacy by Design
-Physiological and linguistic representations do not leave the device without explicit consent.
-
-6. Right to Erasure
-Users may delete selected data periods or reset the entire profile.
-
+Causal Barrier Principle
+Only correlations and trends — never causes, diagnoses, or inferred intent.
+Full User Control
+Linguistic analysis is optional; all data can be selectively deleted or fully reset.
+No Behavioral Steering
+EUNOIA does not instruct users what to do, feel, or conclude.
+Model Separation
+Personal on-device models remain isolated from global systems.
+Privacy by Design
+No personal data leaves the device without explicit and reversible consent.
+Right to Erasure
+Selective or complete deletion is always available.
+Evaluation Perspective
+Effectiveness would be assessed through:
+false positive rate in anomaly detection,
+long-term stability of trend recognition,
+user-reported usefulness,
+independent ethical and security audits.
+The system prioritizes epistemic transparency over predictive assertiveness.
 Challenges
-
 EUNOIA does not:
-
-diagnose psychological conditions,
-
-determine causes of emotional responses,
-
+diagnose mental health conditions,
+infer emotional causes,
 evaluate interpersonal relationships,
-
-replace professional psychological support.
-
+replace psychological care.
 Limitations include:
-
 potential false positives,
-
-possible user over-interpretation,
-
-limitations of linguistic models in handling irony and ambiguity,
-
-risk of over-reliance on technological support,
-
-the need to maintain high-level privacy safeguards.
-
-The system reports correlations and trends only.
-
+risk of overinterpretation by users,
+difficulty with irony and complex social cues,
+sensor inaccuracies,
+possible over-reliance on technological mediation.
 What Next?
-
 Future development may include:
-
-building a functional wearable prototype,
-
+early smartwatch prototype integration,
 interface refinement,
-
-pilot studies with real users,
-
-ethical audits and data security testing,
-
-interdisciplinary collaboration between AI engineers, physiologists, and ethics researchers,
-
-refinement of trend analysis without reduction to simplistic numerical scoring.
-
+pilot studies with volunteers,
+interdisciplinary collaboration (AI ethics, cognitive science, HCI),
+calibration research in anomaly detection,
+formal ethical and security review.
+Long-term, EUNOIA could contribute to research on privacy-preserving affect-aware AI systems.
 Acknowledgments
-
-This project is inspired by:
-
-research on heart rate variability (HRV),
-
-on-device processing architectures,
-
-contemporary discussions on ethical AI design,
-
-an original visual concept grounded in individual perceptual experience.
-
-Prototype Demonstration (Python)
-
-A simplified prototype of the trend detection mechanism is available in the file trend_engine_demo.py.
-
-The script demonstrates:
-
-calculation of a personal physiological baseline,
-
-definition of an anomaly threshold,
-
-detection of stable deviation across three consecutive periods.
-
-This prototype illustrates the conceptual logic behind EUNOIA’s trend engine in a minimal and transparent form.
-## Visual Identity – Color Concept
-
-<img src="eunoia.jpg.png" width="500">
-
-<em>
-EUNOIA visual identity: white base as perceptual clarity and neutrality,  
-cobalt pigment as emotional amplitude and cognitive precision.  
-The brush-like texture represents regulation as a process — fluid, non-linear and adaptive.
-</em>
+Inspired by:
+HRV research and autonomic regulation studies,
+on-device machine learning architectures,
+contemporary ethical AI frameworks,
+a synesthetic perceptual concept combining color and motion.
+No licensed or proprietary code was used.
+The project is conceptual and exploratory.
