@@ -1,4 +1,4 @@
-EUNOIA – A System Supporting Cognitive Autonomy and Stress Regulation
+# EUNOIA – A System Supporting Cognitive Autonomy and Stress Regulation
 Final project for the Building AI course
 Summary
 EUNOIA is a personalized AI system designed to operate alongside a wearable device in order to support cognitive autonomy through the analysis of individual physiological patterns and—optionally—linguistic patterns.
